@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <title>Photo Gallery</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .image-container { width: 100%; text-align: center; margin-top: 20px; }
-        img { width: 80%; margin: 20px 0; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #270e30; /* Optional: added a background color */
+        }
+        .image-container { 
+            width: 100%; 
+            text-align: center; 
+            margin-top: 20px; 
+        }
+        .image-container img { 
+            width: 45%; 
+            margin: 20px auto; /* This will center the image and add margin */
+            display: block; /* This will prevent images from sitting side by side */
+        }
+        /* Added vertical spacing between images */
+        .image-container img:not(:first-child) { 
+            margin-top: 40px; 
+        }
     </style>
 </head>
 <body>
 
 <div class="image-container">
-    <img src="photos/_2.jpg" alt="Photo 1">
-    <img src="photos/_4.jpg" alt="Photo 2">
+    <img src="photos/2.png" alt="Photo 1">
+    <img src="photos/4.png" alt="Photo 2">
     <img src="photos/1_s.jpg" alt="Photo 3">
     <img src="photos/2.jpg" alt="Photo 4">
 </div>
