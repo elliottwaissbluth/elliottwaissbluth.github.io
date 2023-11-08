@@ -2,37 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Photo Gallery</title>
+    <title>Photo Gallery with Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: 'Roboto Mono', monospace; 
             margin: 0; 
             padding: 0; 
-            background: #270e30; /* Optional: added a background color */
+            background: #f4f4f4;
+        } 
+        .timeline-container {
+            position: relative;
+            max-width: 1800px;
+            margin: 50px auto;
         }
-        .image-container { 
-            width: 100%; 
-            text-align: center; 
-            margin-top: 20px; 
+        .timeline-bar {
+            position: absolute;
+            width: 4px;
+            background: #333;
+            left: 50px;
+            top: 0;
+            bottom: 0;
         }
-        .image-container img { 
-            width: 45%; 
-            margin: 20px auto; /* This will center the image and add margin */
-            display: block; /* This will prevent images from sitting side by side */
+        .entry {
+            position: relative;
+            display: flex; /* Flexbox layout for aligning text and image */
+            align-items: center; /* Align items vertically */
+            margin-bottom: 80px; /* Increase space between entries */
         }
-        /* Added vertical spacing between images */
-        .image-container img:not(:first-child) { 
-            margin-top: 40px; 
+        .entry .text-container {
+            flex: 0 1 600px; /* Allows the text container to have a max width of 300px */
+            padding-left: 40px; /* Increase space between text and image */
+            text-align: left; /* Align text to the left */
+        }
+        .entry .text-container .date {
+            font-size: 5em;
+            font-weight: bold;
+        }
+        .entry .text-container .description {
+            font-size: 2em;
+        }
+        .entry img {
+            width: 45%;
+            display: block;
+            margin-left: 150px; /* Increase left margin to separate from the timeline bar */
+        }
+        .entry .marker {
+            position: absolute;
+            height: 20px;
+            width: 20px; /* Smaller marker for the timeline connection */
+            background: #333;
+            left: 50px; /* Align with the timeline bar */
+            top: 50%; /* Align vertically with image */
+            transform: translateY(-50%); /* Center vertically with respect to the image */
         }
     </style>
 </head>
 <body>
 
-<div class="image-container">
-    <img src="photos/2.png" alt="Photo 1">
-    <img src="photos/4.png" alt="Photo 2">
-    <img src="photos/1_s.jpg" alt="Photo 3">
-    <img src="photos/2.jpg" alt="Photo 4">
+<div class="timeline-container">
+    <div class="timeline-bar"></div>
+    <div class="entry">
+        <div class="marker"></div>
+        <img src="photos/gallery.png" alt="Photo 1">
+        <div class="text-container">
+            <div class="date">2014</div>
+            <div class="description">
+                Ian Goodfellow codes the first generative adversarial network (GAN) in 2014. 
+                The GAN is trained to generate images of handwritten digits but
+                shows promising results in other domains, such as faces.
+            </div>
+        </div>
+    </div>
+    <div class="entry">
+        <div class="marker"></div>
+        <img src="photos/stylegan2.jpg" alt="Photo 1">
+        <div class="text-container">
+            <div class="date">2018</div>
+            <div class="description">
+                After years of improvement, NVIDIA releases StyleGAN, the first
+                time generated faces look deceptively realistic.
+            </div>
+        </div>
+    </div>
+    <div class="entry">
+        <div class="marker"></div>
+        <img src="photos/pentagon.png" alt="Photo 1">
+        <div class="text-container">
+            <div class="date">May, 2023</div>
+            <div class="description">
+                Anyone can create realistic images within a few clicks. This generated
+                image of an explosion at the pentagon crashed the stock market,
+                taking off half a trillion dollars in market cap from the S&P 500.
+            </div>
+        </div>
+    </div>
+    <div class="entry">
+        <div class="marker"></div>
+        <img src="photos/1_s.jpg" alt="Photo 1">
+        <div class="text-container">
+            <div class="date">June, 2023</div>
+            <div class="description">
+                Midjourney releases the 5.2 version of its model, which 
+                specializes in generating photorealistic images from a text prompt.
+            </div>
+        </div>
+    </div>
+    <div class="entry">
+        <div class="marker"></div>
+        <img src="photos/explosion.jpg" alt="Photo 1">
+        <div class="text-container">
+            <div class="date">Today</div>
+            <div class="description">
+                The open source community has created a number of tools to
+                circumvent content moderation by large text-to-image providers.
+                The possibilities are endless.
+            </div>
+        </div>
+    </div>
+    <!-- Repeat the entry block for each photo and corresponding text -->
+    <!-- ... other entries ... -->
 </div>
 
 </body>
